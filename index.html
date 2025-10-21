@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Automate Adelaide - AI solutions for Adelaide small and medium businesses. Custom AI models, API creation, and workflow automation.">
+    <title>Automate Adelaide | AI Solutions for Adelaide Businesses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">Automate Adelaide</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="cta-button nav-cta">Get Started</button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-up">
+                    <div class="badge">
+                        <span class="badge-icon">🚀</span>
+                        Adelaide's Premier AI Automation Partner
+                    </div>
+                    <h1 class="hero-title">
+                        Transform Your Business with
+                        <span class="gradient-text">Intelligent Automation</span>
+                    </h1>
+                    <p class="hero-description">
+                        Empowering Adelaide's small and medium businesses with custom AI models,
+                        API solutions, and cutting-edge workflow automation. Unlock efficiency,
+                        reduce costs, and scale with confidence.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="cta-button primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                            <span>Start Your AI Journey</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="cta-button secondary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+                            <span>Explore Solutions</span>
+                        </button>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="50">0</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="95">0</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="40">0</div>
+                            <div class="stat-label">Hours Saved Weekly</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual" data-aos="fade-left">
+                    <div class="floating-card card-1">
+                        <div class="card-icon">🤖</div>
+                        <div class="card-content">
+                            <div class="card-title">AI Models</div>
+                            <div class="card-subtitle">Custom trained</div>
+                        </div>
+                        <div class="card-metric">+45%</div>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="card-icon">⚙️</div>
+                        <div class="card-content">
+                            <div class="card-title">Automation</div>
+                            <div class="card-subtitle">Workflow optimized</div>
+                        </div>
+                        <div class="card-metric">-60%</div>
+                    </div>
+                    <div class="floating-card card-3">
+                        <div class="card-icon">📊</div>
+                        <div class="card-content">
+                            <div class="card-title">Analytics</div>
+                            <div class="card-subtitle">Real-time insights</div>
+                        </div>
+                        <div class="card-metric">24/7</div>
+                    </div>
+                    <div class="visual-center">
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring delay-1"></div>
+                        <div class="pulse-ring delay-2"></div>
+                        <div class="center-orb">AI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">What We Offer</div>
+                <h2 class="section-title">Comprehensive AI Solutions</h2>
+                <p class="section-description">
+                    Tailored automation services designed specifically for Adelaide businesses
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 5L25 15L35 16.5L27.5 24L29 34L20 29L11 34L12.5 24L5 16.5L15 15L20 5Z" stroke="url(#gradient1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="gradient1" x1="5" y1="5" x2="35" y2="35" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#667eea"/>
+                                    <stop offset="1" stop-color="#764ba2"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Custom AI Models</h3>
+                    <p class="service-description">
+                        Bespoke machine learning models trained on your specific business data to solve unique challenges and drive intelligent decision-making.
+                    </p>
+                    <ul class="service-features">
+                        <li>Natural Language Processing</li>
+                        <li>Predictive Analytics</li>
+                        <li>Computer Vision</li>
+                        <li>Pattern Recognition</li>
+                    </ul>
+                    <div class="service-link">
+                        Learn more →
+                    </div>
+                </div>
+
+                <div class="service-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M35 20C35 28.2843 28.2843 35 20 35C11.7157 35 5 28.2843 5 20C5 11.7157 11.7157 5 20 5C28.2843 5 35 11.7157 35 20Z" stroke="url(#gradient2)" stroke-width="2"/>
+                            <path d="M20 10V20L27 27" stroke="url(#gradient2)" stroke-width="2" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="gradient2" x1="5" y1="5" x2="35" y2="35" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#f093fb"/>
+                                    <stop offset="1" stop-color="#f5576c"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Workflow Automation</h3>
+                    <p class="service-description">
+                        Streamline repetitive tasks and optimize your business processes with intelligent automation that works 24/7.
+                    </p>
+                    <ul class="service-features">
+                        <li>Process Automation</li>
+                        <li>Data Integration</li>
+                        <li>Task Scheduling</li>
+                        <li>Intelligent Routing</li>
+                    </ul>
+                    <div class="service-link">
+                        Learn more →
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M10 15L20 5L30 15M20 5V25" stroke="url(#gradient3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5 25V35H35V25" stroke="url(#gradient3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="gradient3" x1="5" y1="5" x2="35" y2="35" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#4facfe"/>
+                                    <stop offset="1" stop-color="#00f2fe"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Custom API Development</h3>
+                    <p class="service-description">
+                        Robust, scalable APIs that connect your systems seamlessly and enable powerful integrations with AI capabilities.
+                    </p>
+                    <ul class="service-features">
+                        <li>RESTful APIs</li>
+                        <li>GraphQL Integration</li>
+                        <li>Webhook Systems</li>
+                        <li>API Security</li>
+                    </ul>
+                    <div class="service-link">
+                        Learn more →
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M5 12.5H35M5 20H35M5 27.5H35" stroke="url(#gradient4)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12.5 5V35M27.5 5V35" stroke="url(#gradient4)" stroke-width="2" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="gradient4" x1="5" y1="5" x2="35" y2="35" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#fa709a"/>
+                                    <stop offset="1" stop-color="#fee140"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Data Analytics & Insights</h3>
+                    <p class="service-description">
+                        Transform raw data into actionable insights with advanced analytics and visualization dashboards.
+                    </p>
+                    <ul class="service-features">
+                        <li>Business Intelligence</li>
+                        <li>Real-time Dashboards</li>
+                        <li>Data Visualization</li>
+                        <li>Predictive Insights</li>
+                    </ul>
+                    <div class="service-link">
+                        Learn more →
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 35C28.2843 35 35 28.2843 35 20C35 11.7157 28.2843 5 20 5C11.7157 5 5 11.7157 5 20C5 28.2843 11.7157 35 20 35Z" stroke="url(#gradient5)" stroke-width="2"/>
+                            <path d="M20 13V20L25 25" stroke="url(#gradient5)" stroke-width="2" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="gradient5" x1="5" y1="5" x2="35" y2="35" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#30cfd0"/>
+                                    <stop offset="1" stop-color="#330867"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">AI Consulting</h3>
+                    <p class="service-description">
+                        Expert guidance on AI strategy, implementation roadmaps, and digital transformation journeys.
+                    </p>
+                    <ul class="service-features">
+                        <li>AI Strategy Planning</li>
+                        <li>Technology Assessment</li>
+                        <li>ROI Analysis</li>
+                        <li>Implementation Support</li>
+                    </ul>
+                    <div class="service-link">
+                        Learn more →
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 5V35M5 20H35" stroke="url(#gradient6)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="20" cy="20" r="7" stroke="url(#gradient6)" stroke-width="2"/>
+                            <defs>
+                                <linearGradient id="gradient6" x1="5" y1="5" x2="35" y2="35" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#a8edea"/>
+                                    <stop offset="1" stop-color="#fed6e3"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Ongoing Support & Maintenance</h3>
+                    <p class="service-description">
+                        Continuous monitoring, updates, and optimization to ensure your AI solutions perform at peak efficiency.
+                    </p>
+                    <ul class="service-features">
+                        <li>24/7 Monitoring</li>
+                        <li>Performance Optimization</li>
+                        <li>Regular Updates</li>
+                        <li>Technical Support</li>
+                    </ul>
+                    <div class="service-link">
+                        Learn more →
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="solutions">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">Industry Solutions</div>
+                <h2 class="section-title">Tailored for Adelaide Businesses</h2>
+                <p class="section-description">
+                    Proven AI solutions across diverse industries
+                </p>
+            </div>
+
+            <div class="solutions-container">
+                <div class="solution-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="solution-number">01</div>
+                    <div class="solution-content">
+                        <h3>Retail & E-commerce</h3>
+                        <p>Inventory prediction, customer behavior analysis, personalized recommendations, and automated customer service.</p>
+                    </div>
+                </div>
+                <div class="solution-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="solution-number">02</div>
+                    <div class="solution-content">
+                        <h3>Professional Services</h3>
+                        <p>Document processing, appointment scheduling, client communication automation, and billing optimization.</p>
+                    </div>
+                </div>
+                <div class="solution-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="solution-number">03</div>
+                    <div class="solution-content">
+                        <h3>Healthcare & Wellness</h3>
+                        <p>Patient scheduling, record management, appointment reminders, and compliance automation.</p>
+                    </div>
+                </div>
+                <div class="solution-item" data-aos="fade-right" data-aos-delay="400">
+                    <div class="solution-number">04</div>
+                    <div class="solution-content">
+                        <h3>Manufacturing & Logistics</h3>
+                        <p>Supply chain optimization, quality control automation, predictive maintenance, and route planning.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <div class="section-badge">About Us</div>
+                    <h2 class="section-title">Adelaide's AI Automation Experts</h2>
+                    <p class="about-description">
+                        At Automate Adelaide, we're passionate about empowering local businesses with cutting-edge AI technology.
+                        Our team of experienced developers, data scientists, and automation specialists work closely with Adelaide's
+                        small and medium businesses to create custom solutions that drive real results.
+                    </p>
+                    <p class="about-description">
+                        We understand the unique challenges faced by Adelaide businesses, and we're committed to delivering
+                        affordable, scalable AI solutions that provide tangible ROI. From initial consultation to ongoing support,
+                        we're your partner in digital transformation.
+                    </p>
+                    <div class="about-values">
+                        <div class="value-item">
+                            <div class="value-icon">✓</div>
+                            <div class="value-text">
+                                <h4>Local Expertise</h4>
+                                <p>Deep understanding of Adelaide's business landscape</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">✓</div>
+                            <div class="value-text">
+                                <h4>Custom Solutions</h4>
+                                <p>No cookie-cutter approaches, only tailored AI</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">✓</div>
+                            <div class="value-text">
+                                <h4>Proven Results</h4>
+                                <p>Measurable improvements in efficiency and ROI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual" data-aos="fade-left">
+                    <div class="tech-stack">
+                        <div class="tech-item">Python</div>
+                        <div class="tech-item">TensorFlow</div>
+                        <div class="tech-item">PyTorch</div>
+                        <div class="tech-item">Node.js</div>
+                        <div class="tech-item">FastAPI</div>
+                        <div class="tech-item">React</div>
+                        <div class="tech-item">Docker</div>
+                        <div class="tech-item">AWS</div>
+                        <div class="tech-item">Azure</div>
+                        <div class="tech-item">OpenAI</div>
+                        <div class="tech-item">LangChain</div>
+                        <div class="tech-item">PostgreSQL</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="section-badge">Get In Touch</div>
+                    <h2 class="section-title">Ready to Automate Your Business?</h2>
+                    <p class="contact-description">
+                        Let's discuss how AI can transform your Adelaide business. Schedule a free consultation
+                        to explore custom solutions tailored to your needs.
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Adelaide, South Australia</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>hello@automateadelaide.com.au</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div>
+                                <h4>Business Hours</h4>
+                                <p>Mon - Fri: 9:00 AM - 5:00 PM ACST</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M23 3.00005C22.0424 3.67552 20.9821 4.19216 19.86 4.53005C19.2577 3.83756 18.4573 3.34674 17.567 3.12397C16.6767 2.90121 15.7395 2.95724 14.8821 3.28451C14.0247 3.61177 13.2884 4.19445 12.773 4.95376C12.2575 5.71308 11.9877 6.61238 12 7.53005V8.53005C10.2426 8.57561 8.50127 8.18586 6.93101 7.39549C5.36074 6.60513 4.01032 5.43868 3 4.00005C3 4.00005 -1 13 8 17C5.94053 18.398 3.48716 19.099 1 19C10 24 21 19 21 7.50005C20.9991 7.2215 20.9723 6.94364 20.92 6.67005C21.9406 5.66354 22.6608 4.39276 23 3.00005Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 19C4 20.5 4 16.5 2 16M16 22V18.13C16.0375 17.6532 15.9731 17.1738 15.811 16.7238C15.6489 16.2738 15.3929 15.8634 15.06 15.52C18.2 15.17 21.5 13.98 21.5 8.52C21.4997 7.12383 20.9627 5.7812 20 4.77C20.4559 3.54851 20.4236 2.19835 19.91 1C19.91 1 18.73 0.65 16 2.48C13.708 1.85882 11.292 1.85882 9 2.48C6.27 0.65 5.09 1 5.09 1C4.57638 2.19835 4.54414 3.54851 5 4.77C4.03013 5.7887 3.49252 7.14346 3.5 8.55C3.5 13.97 6.8 15.16 9.94 15.55C9.611 15.89 9.35726 16.2954 9.19531 16.7399C9.03335 17.1844 8.96681 17.6581 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container" data-aos="fade-left">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="John Smith">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Your Company Pty Ltd">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="04XX XXX XXX">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="ai-models">Custom AI Models</option>
+                                <option value="automation">Workflow Automation</option>
+                                <option value="api">API Development</option>
+                                <option value="analytics">Data Analytics</option>
+                                <option value="consulting">AI Consulting</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Tell Us About Your Project</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Describe your automation needs..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button primary submit-button">
+                            <span>Send Message</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">Automate Adelaide</span>
+                    </div>
+                    <p class="footer-tagline">
+                        Empowering Adelaide businesses with intelligent automation and custom AI solutions.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Custom AI Models</a></li>
+                        <li><a href="#services">Workflow Automation</a></li>
+                        <li><a href="#services">API Development</a></li>
+                        <li><a href="#services">Data Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="mailto:hello@automateadelaide.com.au">Email Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Automate Adelaide. All rights reserved.</p>
+                <p>Made with AI in Adelaide, South Australia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
