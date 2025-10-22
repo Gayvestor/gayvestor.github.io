@@ -845,3 +845,483 @@ window.addEventListener('load', () => {
         console.log(`%c⚡ Page loaded in ${pageLoadTime}ms`, 'color: #4facfe; font-weight: bold;');
     }
 });
+
+// ==================== //
+// Business Type Selector //
+// ==================== //
+const businessTypeData = {
+    retail: {
+        name: 'Retail & E-commerce',
+        intro: 'Transform your retail operations with intelligent automation that predicts trends, personalizes customer experiences, and optimizes inventory.',
+        automation: [
+            'Automated inventory management and stock level predictions',
+            'Smart pricing optimization based on demand and competition',
+            'Automated order processing and fulfillment workflows',
+            'Email marketing automation with personalized campaigns'
+        ],
+        analytics: [
+            'Customer behavior analysis and shopping pattern insights',
+            'Sales forecasting and trend prediction',
+            'Product performance analytics and recommendations',
+            'Real-time dashboard for sales, inventory, and customer metrics'
+        ],
+        optimization: [
+            'Supply chain optimization and vendor management',
+            'Dynamic pricing strategies based on market conditions',
+            'Warehouse layout optimization for faster fulfillment',
+            'Returns processing automation and fraud detection'
+        ],
+        customer: [
+            'AI-powered chatbots for 24/7 customer support',
+            'Personalized product recommendations',
+            'Automated review management and sentiment analysis',
+            'Loyalty program automation and customer segmentation'
+        ]
+    },
+    professional: {
+        name: 'Professional Services',
+        intro: 'Streamline your professional services with AI that handles documentation, scheduling, and client communications, letting you focus on delivering value.',
+        automation: [
+            'Automated document generation and contract creation',
+            'Intelligent appointment scheduling and calendar management',
+            'Automated billing, invoicing, and payment reminders',
+            'Email triage and response automation'
+        ],
+        analytics: [
+            'Client portfolio analysis and risk assessment',
+            'Time tracking and profitability analytics by client/project',
+            'Resource allocation and capacity planning insights',
+            'Performance metrics and KPI dashboards'
+        ],
+        optimization: [
+            'Workflow automation for case management',
+            'Document management and intelligent search',
+            'Client onboarding process optimization',
+            'Meeting scheduling optimization to reduce conflicts'
+        ],
+        customer: [
+            'Client portal for document sharing and communication',
+            'Automated client status updates and reporting',
+            'Smart intake forms with conditional logic',
+            'Client satisfaction surveys and feedback analysis'
+        ]
+    },
+    healthcare: {
+        name: 'Healthcare & Wellness',
+        intro: 'Enhance patient care with AI automation that handles administrative tasks, streamlines scheduling, and ensures compliance.',
+        automation: [
+            'Automated appointment scheduling and reminders',
+            'Patient intake form processing and data entry',
+            'Prescription refill automation',
+            'Insurance verification and pre-authorization processing'
+        ],
+        analytics: [
+            'Patient health trends and outcome analysis',
+            'Resource utilization and staff scheduling optimization',
+            'Treatment effectiveness tracking',
+            'Financial performance and revenue cycle analytics'
+        ],
+        optimization: [
+            'Electronic health records (EHR) management and search',
+            'Patient flow optimization to reduce wait times',
+            'Inventory management for medical supplies',
+            'Compliance documentation and reporting automation'
+        ],
+        customer: [
+            'Patient communication via SMS/email reminders',
+            'Telehealth platform integration',
+            'Patient feedback collection and analysis',
+            'Educational content delivery based on conditions'
+        ]
+    },
+    manufacturing: {
+        name: 'Manufacturing & Logistics',
+        intro: 'Optimize production and supply chain with AI-driven insights, predictive maintenance, and automated quality control.',
+        automation: [
+            'Production scheduling and workflow automation',
+            'Automated quality control and defect detection',
+            'Inventory and raw material ordering automation',
+            'Shipping and logistics coordination'
+        ],
+        analytics: [
+            'Predictive maintenance for equipment and machinery',
+            'Production efficiency and OEE (Overall Equipment Effectiveness)',
+            'Supply chain analytics and bottleneck identification',
+            'Demand forecasting and production planning'
+        ],
+        optimization: [
+            'Route optimization for delivery and logistics',
+            'Warehouse layout and storage optimization',
+            'Energy consumption optimization',
+            'Workforce scheduling and shift planning'
+        ],
+        customer: [
+            'Order tracking and customer notifications',
+            'Automated customer service for order inquiries',
+            'Quality feedback collection and analysis',
+            'B2B portal for order management'
+        ]
+    },
+    hospitality: {
+        name: 'Hospitality & Tourism',
+        intro: 'Deliver exceptional guest experiences with AI that personalizes service, optimizes bookings, and streamlines operations.',
+        automation: [
+            'Automated booking and reservation management',
+            'Dynamic pricing based on demand and seasonality',
+            'Guest check-in/check-out automation',
+            'Housekeeping and maintenance task scheduling'
+        ],
+        analytics: [
+            'Occupancy forecasting and revenue management',
+            'Guest satisfaction and review sentiment analysis',
+            'Staff performance and productivity tracking',
+            'Market trends and competitive analysis'
+        ],
+        optimization: [
+            'Room allocation optimization for maximum revenue',
+            'Staff scheduling based on predicted demand',
+            'Energy management and cost optimization',
+            'Inventory management for food, beverages, and supplies'
+        ],
+        customer: [
+            'Personalized guest communications and offers',
+            'AI concierge for guest inquiries and recommendations',
+            'Post-stay feedback collection and analysis',
+            'Loyalty program management and rewards automation'
+        ]
+    },
+    realestate: {
+        name: 'Real Estate & Property Management',
+        intro: 'Transform property management with AI that automates tenant communications, maintenance, and market analysis.',
+        automation: [
+            'Automated tenant screening and application processing',
+            'Lease generation and renewal automation',
+            'Maintenance request tracking and vendor dispatch',
+            'Rent collection and payment reminders'
+        ],
+        analytics: [
+            'Property valuation and market trend analysis',
+            'Rental yield and ROI calculations',
+            'Tenant behavior and retention insights',
+            'Portfolio performance dashboards'
+        ],
+        optimization: [
+            'Property marketing and listing optimization',
+            'Showing schedule coordination and optimization',
+            'Maintenance prioritization and resource allocation',
+            'Vacancy prediction and leasing strategy'
+        ],
+        customer: [
+            'Tenant portal for maintenance requests and payments',
+            'Automated property tour scheduling',
+            'Virtual property tours with AI-guided presentations',
+            'Tenant satisfaction surveys and feedback management'
+        ]
+    },
+    construction: {
+        name: 'Construction & Trades',
+        intro: 'Build smarter with AI that manages projects, optimizes scheduling, and ensures safety compliance.',
+        automation: [
+            'Project scheduling and task management automation',
+            'Equipment tracking and maintenance scheduling',
+            'Automated invoicing and progress billing',
+            'Material ordering and inventory management'
+        ],
+        analytics: [
+            'Project cost tracking and budget variance analysis',
+            'Resource utilization and productivity metrics',
+            'Safety incident tracking and analysis',
+            'Timeline prediction and delay risk assessment'
+        ],
+        optimization: [
+            'Crew scheduling and workforce allocation',
+            'Material waste reduction and optimization',
+            'Route optimization for multiple job sites',
+            'Permit tracking and compliance management'
+        ],
+        customer: [
+            'Client project updates and milestone notifications',
+            'Photo documentation and progress reporting',
+            'Change order management and approval workflows',
+            'Customer feedback and quality assurance surveys'
+        ]
+    },
+    education: {
+        name: 'Education & Training',
+        intro: 'Enhance learning outcomes with AI that personalizes education, automates administration, and tracks student progress.',
+        automation: [
+            'Automated course enrollment and scheduling',
+            'Assignment grading and feedback generation',
+            'Attendance tracking and parent notifications',
+            'Certification and credential management'
+        ],
+        analytics: [
+            'Student performance tracking and early intervention alerts',
+            'Learning style analysis and personalization',
+            'Course effectiveness and completion rate analysis',
+            'Resource allocation and capacity planning'
+        ],
+        optimization: [
+            'Curriculum optimization based on learning outcomes',
+            'Classroom and resource scheduling',
+            'Student-teacher matching for optimal learning',
+            'Digital content recommendation and delivery'
+        ],
+        customer: [
+            'Student/parent communication portal',
+            'AI tutoring and homework assistance',
+            'Personalized learning path recommendations',
+            'Progress reports and achievement notifications'
+        ]
+    },
+    finance: {
+        name: 'Finance & Insurance',
+        intro: 'Secure your operations with AI that detects fraud, automates compliance, and provides intelligent insights.',
+        automation: [
+            'Automated transaction processing and reconciliation',
+            'Document processing for loan/insurance applications',
+            'Compliance reporting and regulatory filing automation',
+            'Customer onboarding and KYC (Know Your Customer) verification'
+        ],
+        analytics: [
+            'Fraud detection and anomaly identification',
+            'Risk assessment and credit scoring',
+            'Portfolio performance and investment analysis',
+            'Customer lifetime value and churn prediction'
+        ],
+        optimization: [
+            'Claims processing workflow optimization',
+            'Underwriting process automation and decisioning',
+            'Cash flow forecasting and treasury management',
+            'Expense categorization and budget tracking'
+        ],
+        customer: [
+            'AI-powered financial advisors and chatbots',
+            'Personalized product recommendations',
+            'Automated customer service for account inquiries',
+            'Proactive alerts for unusual activity or opportunities'
+        ]
+    },
+    marketing: {
+        name: 'Marketing & Creative Services',
+        intro: 'Amplify your creative impact with AI that optimizes campaigns, generates content ideas, and analyzes performance.',
+        automation: [
+            'Social media posting and scheduling automation',
+            'Email campaign creation and delivery',
+            'Ad campaign management and bidding optimization',
+            'Content distribution across multiple channels'
+        ],
+        analytics: [
+            'Campaign performance tracking and ROI analysis',
+            'Audience segmentation and behavior insights',
+            'Competitor analysis and market positioning',
+            'Content engagement metrics and optimization recommendations'
+        ],
+        optimization: [
+            'A/B testing automation for ads and content',
+            'Budget allocation across channels for maximum ROI',
+            'SEO optimization and keyword strategy',
+            'Influencer identification and outreach prioritization'
+        ],
+        customer: [
+            'Personalized content delivery based on user behavior',
+            'Chatbots for lead qualification and nurturing',
+            'Dynamic landing pages tailored to visitor segments',
+            'Customer journey mapping and touchpoint optimization'
+        ]
+    },
+    technology: {
+        name: 'Technology & Software',
+        intro: 'Accelerate development with AI that automates testing, monitors systems, and provides intelligent code assistance.',
+        automation: [
+            'Automated testing and continuous integration/deployment (CI/CD)',
+            'Code review and quality assurance automation',
+            'Bug triage and ticket routing',
+            'Documentation generation from code'
+        ],
+        analytics: [
+            'System performance monitoring and anomaly detection',
+            'User behavior analytics and feature usage tracking',
+            'Code quality metrics and technical debt analysis',
+            'DevOps metrics and deployment success rates'
+        ],
+        optimization: [
+            'Resource scaling and cloud cost optimization',
+            'Database query optimization',
+            'API performance monitoring and optimization',
+            'Development workflow and sprint planning optimization'
+        ],
+        customer: [
+            'AI-powered customer support and troubleshooting',
+            'Automated onboarding and user education',
+            'Feature request prioritization based on user impact',
+            'Proactive issue detection and customer notifications'
+        ]
+    },
+    food: {
+        name: 'Food & Beverage',
+        intro: 'Serve better experiences with AI that manages inventory, optimizes menus, and personalizes customer interactions.',
+        automation: [
+            'Automated inventory tracking and supplier ordering',
+            'Online ordering and delivery coordination',
+            'Staff scheduling based on predicted demand',
+            'Recipe costing and menu pricing automation'
+        ],
+        analytics: [
+            'Sales forecasting by time, day, and season',
+            'Menu item performance and profitability analysis',
+            'Customer preferences and dietary trend analysis',
+            'Food waste tracking and reduction insights'
+        ],
+        optimization: [
+            'Kitchen workflow and prep time optimization',
+            'Delivery route optimization for food service',
+            'Table turnover and seating optimization',
+            'Energy consumption monitoring for kitchen equipment'
+        ],
+        customer: [
+            'Personalized menu recommendations',
+            'Loyalty program and rewards automation',
+            'Reservation management and waitlist optimization',
+            'Feedback collection and review response automation'
+        ]
+    },
+    automotive: {
+        name: 'Automotive Services',
+        intro: 'Drive efficiency with AI that schedules service, manages parts inventory, and predicts maintenance needs.',
+        automation: [
+            'Service appointment scheduling and reminders',
+            'Parts inventory and ordering automation',
+            'Vehicle inspection report generation',
+            'Automated invoicing and payment processing'
+        ],
+        analytics: [
+            'Service history tracking and predictive maintenance',
+            'Technician productivity and efficiency metrics',
+            'Parts usage trends and inventory optimization',
+            'Customer retention and service interval analysis'
+        ],
+        optimization: [
+            'Bay scheduling and workflow optimization',
+            'Warranty claim processing automation',
+            'Diagnostic process optimization',
+            'Fleet management and vehicle tracking'
+        ],
+        customer: [
+            'Service status updates and completion notifications',
+            'Vehicle maintenance reminders and recall alerts',
+            'Digital vehicle inspection reports with photos',
+            'Customer feedback and satisfaction surveys'
+        ]
+    },
+    fitness: {
+        name: 'Fitness & Sports',
+        intro: 'Energize your business with AI that personalizes training, tracks progress, and optimizes member engagement.',
+        automation: [
+            'Class scheduling and booking automation',
+            'Membership management and renewal reminders',
+            'Trainer scheduling and client matching',
+            'Automated billing and payment processing'
+        ],
+        analytics: [
+            'Member engagement and retention analytics',
+            'Workout effectiveness and progress tracking',
+            'Class attendance patterns and popularity',
+            'Revenue analysis by service type and time period'
+        ],
+        optimization: [
+            'Personalized workout plan generation',
+            'Equipment maintenance scheduling',
+            'Space utilization and class timing optimization',
+            'Nutrition plan creation and tracking'
+        ],
+        customer: [
+            'Member mobile app with workout tracking',
+            'AI fitness coach and form correction',
+            'Progress notifications and achievement badges',
+            'Community features and challenge automation'
+        ]
+    },
+    beauty: {
+        name: 'Beauty & Personal Care',
+        intro: 'Beautify your operations with AI that manages bookings, personalizes treatments, and builds client loyalty.',
+        automation: [
+            'Online booking and appointment scheduling',
+            'Automated appointment reminders and confirmations',
+            'Inventory management for products and supplies',
+            'Staff scheduling and shift management'
+        ],
+        analytics: [
+            'Client preference tracking and service history',
+            'Service popularity and revenue analysis',
+            'Staff performance and utilization metrics',
+            'Retail product sales and recommendation opportunities'
+        ],
+        optimization: [
+            'Appointment scheduling to minimize gaps',
+            'Treatment duration optimization',
+            'Product recommendation based on client profile',
+            'Marketing campaign timing and targeting'
+        ],
+        customer: [
+            'Personalized treatment recommendations',
+            'Loyalty rewards and referral program automation',
+            'Before/after photo tracking and sharing',
+            'Automated follow-up and rebooking suggestions'
+        ]
+    }
+};
+
+// Business Type Selector Handler
+const businessTypeSelect = document.getElementById('businessType');
+const solutionDisplay = document.getElementById('solutionDisplay');
+
+if (businessTypeSelect) {
+    businessTypeSelect.addEventListener('change', function() {
+        const selectedType = this.value;
+
+        if (selectedType && businessTypeData[selectedType]) {
+            const data = businessTypeData[selectedType];
+
+            // Update solution title and intro
+            document.getElementById('solutionTitle').textContent = data.name;
+            document.getElementById('solutionIntro').textContent = data.intro;
+            document.getElementById('businessTypeName').textContent = data.name;
+
+            // Populate automation list
+            const automationList = document.getElementById('automationList');
+            automationList.innerHTML = data.automation.map(item => `<li>${item}</li>`).join('');
+
+            // Populate analytics list
+            const analyticsList = document.getElementById('analyticsList');
+            analyticsList.innerHTML = data.analytics.map(item => `<li>${item}</li>`).join('');
+
+            // Populate optimization list
+            const optimizationList = document.getElementById('optimizationList');
+            optimizationList.innerHTML = data.optimization.map(item => `<li>${item}</li>`).join('');
+
+            // Populate customer list
+            const customerList = document.getElementById('customerList');
+            customerList.innerHTML = data.customer.map(item => `<li>${item}</li>`).join('');
+
+            // Show solution display with animation
+            solutionDisplay.style.display = 'block';
+            setTimeout(() => {
+                solutionDisplay.style.opacity = '1';
+                solutionDisplay.style.transform = 'translateY(0)';
+            }, 10);
+
+            // Scroll to solution display
+            setTimeout(() => {
+                solutionDisplay.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        } else {
+            // Hide solution display
+            solutionDisplay.style.opacity = '0';
+            solutionDisplay.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                solutionDisplay.style.display = 'none';
+            }, 300);
+        }
+    });
+}
