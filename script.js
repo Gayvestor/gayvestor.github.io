@@ -1272,56 +1272,192 @@ const businessTypeData = {
     }
 };
 
-// Business Type Selector Handler
-const businessTypeSelect = document.getElementById('businessType');
+// ==================== //
+// Industry Card Click Handlers //
+// ==================== //
+const industryCards = document.querySelectorAll('.industry-card');
 const solutionDisplay = document.getElementById('solutionDisplay');
+const industryGrid = document.querySelector('.industry-grid');
 
-if (businessTypeSelect) {
-    businessTypeSelect.addEventListener('change', function() {
-        const selectedType = this.value;
+// Function to show industry solution
+function showIndustrySolution(industryType) {
+    const data = businessTypeData[industryType];
 
-        if (selectedType && businessTypeData[selectedType]) {
-            const data = businessTypeData[selectedType];
+    if (data) {
+        // Update solution title and intro
+        document.getElementById('solutionTitle').textContent = data.name;
+        document.getElementById('solutionIntro').textContent = data.intro;
+        document.getElementById('businessTypeName').textContent = data.name;
 
-            // Update solution title and intro
-            document.getElementById('solutionTitle').textContent = data.name;
-            document.getElementById('solutionIntro').textContent = data.intro;
-            document.getElementById('businessTypeName').textContent = data.name;
+        // Populate lists
+        document.getElementById('automationList').innerHTML = data.automation.map(item => `<li>${item}</li>`).join('');
+        document.getElementById('analyticsList').innerHTML = data.analytics.map(item => `<li>${item}</li>`).join('');
+        document.getElementById('optimizationList').innerHTML = data.optimisation.map(item => `<li>${item}</li>`).join('');
+        document.getElementById('customerList').innerHTML = data.customer.map(item => `<li>${item}</li>`).join('');
 
-            // Populate automation list
-            const automationList = document.getElementById('automationList');
-            automationList.innerHTML = data.automation.map(item => `<li>${item}</li>`).join('');
+        // Hide industry grid and show solution
+        industryGrid.style.display = 'none';
+        solutionDisplay.style.display = 'block';
+        setTimeout(() => {
+            solutionDisplay.style.opacity = '1';
+            solutionDisplay.style.transform = 'translateY(0)';
+        }, 10);
 
-            // Populate analytics list
-            const analyticsList = document.getElementById('analyticsList');
-            analyticsList.innerHTML = data.analytics.map(item => `<li>${item}</li>`).join('');
+        // Scroll to solution
+        setTimeout(() => {
+            solutionDisplay.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    }
+}
 
-            // Populate optimisation list
-            const optimisationList = document.getElementById('optimizationList');
-            optimisationList.innerHTML = data.optimisation.map(item => `<li>${item}</li>`).join('');
+// Function to reset industry selector
+function resetIndustrySelector() {
+    solutionDisplay.style.opacity = '0';
+    solutionDisplay.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+        solutionDisplay.style.display = 'none';
+        industryGrid.style.display = 'grid';
+    }, 300);
+}
 
-            // Populate customer list
-            const customerList = document.getElementById('customerList');
-            customerList.innerHTML = data.customer.map(item => `<li>${item}</li>`).join('');
+// Add click handlers to industry cards
+industryCards.forEach(card => {
+    card.addEventListener('click', function() {
+        const industryType = this.getAttribute('data-industry');
+        showIndustrySolution(industryType);
+    });
+});
 
-            // Show solution display with animation
-            solutionDisplay.style.display = 'block';
-            setTimeout(() => {
-                solutionDisplay.style.opacity = '1';
-                solutionDisplay.style.transform = 'translateY(0)';
-            }, 10);
+// ==================== //
+// Stats Counter Animation //
+// ==================== //
+function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
 
-            // Scroll to solution display
-            setTimeout(() => {
-                solutionDisplay.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 100);
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target;
+            clearInterval(timer);
         } else {
-            // Hide solution display
-            solutionDisplay.style.opacity = '0';
-            solutionDisplay.style.transform = 'translateY(20px)';
-            setTimeout(() => {
-                solutionDisplay.style.display = 'none';
-            }, 300);
+            element.textContent = Math.floor(current);
         }
+    }, 16);
+}
+
+// Observe stats section and animate when in view
+const observerOptions = {
+    threshold: 0.5
+};
+
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll('[data-target]');
+            counters.forEach(counter => {
+                animateCounter(counter);
+            });
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+const statsSection = document.querySelector('.stats-section');
+if (statsSection) {
+    statsObserver.observe(statsSection);
+}
+
+// ==================== //
+// AI Booking Demo //
+// ==================== //
+const demoForm = document.getElementById('demoForm');
+const demoInput = document.getElementById('demoInput');
+const demoMessages = document.getElementById('demoMessages');
+
+let demoStep = 0;
+let demoUserData = {
+    name: '',
+    company: '',
+    industry: '',
+    email: '',
+    phone: ''
+};
+
+function addDemoMessage(message, isUser = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `demo-chat-message ${isUser ? 'user' : 'bot'}`;
+    messageDiv.innerHTML = `
+        <div class="demo-chat-message-avatar"><i class="fas ${isUser ? 'fa-user' : 'fa-robot'}"></i></div>
+        <div class="demo-chat-message-content">${message}</div>
+    `;
+    demoMessages.appendChild(messageDiv);
+    demoMessages.scrollTop = demoMessages.scrollHeight;
+}
+
+function showDemoTypingIndicator() {
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'demo-chat-message bot typing-indicator';
+    typingDiv.innerHTML = `
+        <div class="demo-chat-message-avatar"><i class="fas fa-robot"></i></div>
+        <div class="chat-typing">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+    `;
+    demoMessages.appendChild(typingDiv);
+    demoMessages.scrollTop = demoMessages.scrollHeight;
+    return typingDiv;
+}
+
+function getDemoResponse(userMessage) {
+    demoStep++;
+
+    switch(demoStep) {
+        case 1:
+            demoUserData.name = userMessage;
+            return `Great to meet you, ${userMessage}! What's the name of your company?`;
+        case 2:
+            demoUserData.company = userMessage;
+            return `Excellent! What industry is ${userMessage} in? (e.g., Retail, Healthcare, Professional Services)`;
+        case 3:
+            demoUserData.industry = userMessage;
+            return `Perfect! I can see how our AI solutions could really benefit a ${userMessage} business in Adelaide. What's the best email address to reach you at?`;
+        case 4:
+            demoUserData.email = userMessage;
+            return `Thanks! And what's a good phone number for our Adelaide team to call you on?`;
+        case 5:
+            demoUserData.phone = userMessage;
+            return `Brilliant! I've got all your details, ${demoUserData.name}. Let me book you in for a free 30-minute consultation with our Adelaide team. Would you prefer morning (9am-12pm) or afternoon (1pm-5pm) ACST?`;
+        case 6:
+            return `Perfect! I've scheduled a consultation for ${userMessage} next week. You'll receive a confirmation email at ${demoUserData.email} with a calendar invite and a Zoom link. Our team will call you at ${demoUserData.phone} if there are any changes.<br><br>In the meantime, here's what to expect:<br>✓ We'll discuss your specific ${demoUserData.industry} needs<br>✓ Demo relevant AI solutions<br>✓ Provide a custom quote<br>✓ Answer all your questions about data hosting in SA<br><br>Looking forward to helping ${demoUserData.company} automate and grow! 🚀`;
+        default:
+            return `Thanks for trying our AI booking assistant! This is just a demo, but the real version works exactly like this - and it's available 24/7 for your customers. <a href="#contact" style="color: #667eea;">Contact us</a> to add this to your website!`;
+    }
+}
+
+if (demoForm) {
+    demoForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const userMessage = demoInput.value.trim();
+        if (!userMessage) return;
+
+        // Add user message
+        addDemoMessage(userMessage, true);
+        demoInput.value = '';
+
+        // Show typing indicator
+        const typingIndicator = showDemoTypingIndicator();
+
+        // Simulate AI thinking time
+        setTimeout(() => {
+            typingIndicator.remove();
+            const response = getDemoResponse(userMessage);
+            addDemoMessage(response);
+        }, 1000 + Math.random() * 1000);
     });
 }

@@ -400,83 +400,121 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <div class="section-badge">How We Can Help</div>
-                <h2 class="section-title">AI Solutions for Your Business Type</h2>
+                <h2 class="section-title">AI Solutions for Your Industry</h2>
                 <p class="section-description">
-                    Select your industry to discover tailored AI automation solutions
+                    Click your industry to discover tailored AI automation solutions
                 </p>
             </div>
 
-            <div class="business-selector-container" data-aos="fade-up" data-aos-delay="100">
-                <div class="selector-wrapper">
-                    <label for="businessType" class="selector-label">What type of business do you run?</label>
-                    <div class="custom-select">
-                        <select id="businessType" class="business-type-select">
-                            <option value="">Choose your industry...</option>
-                            <option value="retail">Retail & E-commerce</option>
-                            <option value="professional">Professional Services (Legal, Accounting, Consulting)</option>
-                            <option value="healthcare">Healthcare & Wellness</option>
-                            <option value="manufacturing">Manufacturing & Logistics</option>
-                            <option value="hospitality">Hospitality & Tourism</option>
-                            <option value="realestate">Real Estate & Property Management</option>
-                            <option value="construction">Construction & Trades</option>
-                            <option value="education">Education & Training</option>
-                            <option value="finance">Finance & Insurance</option>
-                            <option value="marketing">Marketing & Creative Services</option>
-                            <option value="technology">Technology & Software</option>
-                            <option value="food">Food & Beverage</option>
-                            <option value="automotive">Automotive Services</option>
-                            <option value="fitness">Fitness & Sports</option>
-                            <option value="beauty">Beauty & Personal Care</option>
-                        </select>
-                        <div class="select-arrow">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
+            <!-- Interactive Industry Cards -->
+            <div class="industry-grid" data-aos="fade-up">
+                <div class="industry-card" data-industry="retail">
+                    <div class="industry-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>Retail & E-commerce</h3>
+                </div>
+                <div class="industry-card" data-industry="professional">
+                    <div class="industry-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Professional Services</h3>
+                </div>
+                <div class="industry-card" data-industry="healthcare">
+                    <div class="industry-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Healthcare</h3>
+                </div>
+                <div class="industry-card" data-industry="manufacturing">
+                    <div class="industry-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Manufacturing</h3>
+                </div>
+                <div class="industry-card" data-industry="hospitality">
+                    <div class="industry-icon"><i class="fas fa-hotel"></i></div>
+                    <h3>Hospitality</h3>
+                </div>
+                <div class="industry-card" data-industry="realestate">
+                    <div class="industry-icon"><i class="fas fa-home"></i></div>
+                    <h3>Real Estate</h3>
+                </div>
+                <div class="industry-card" data-industry="construction">
+                    <div class="industry-icon"><i class="fas fa-hard-hat"></i></div>
+                    <h3>Construction</h3>
+                </div>
+                <div class="industry-card" data-industry="education">
+                    <div class="industry-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Education</h3>
+                </div>
+                <div class="industry-card" data-industry="finance">
+                    <div class="industry-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <h3>Finance</h3>
+                </div>
+                <div class="industry-card" data-industry="marketing">
+                    <div class="industry-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Marketing</h3>
+                </div>
+                <div class="industry-card" data-industry="technology">
+                    <div class="industry-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Technology</h3>
+                </div>
+                <div class="industry-card" data-industry="food">
+                    <div class="industry-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Food & Beverage</h3>
+                </div>
+                <div class="industry-card" data-industry="automotive">
+                    <div class="industry-icon"><i class="fas fa-car"></i></div>
+                    <h3>Automotive</h3>
+                </div>
+                <div class="industry-card" data-industry="fitness">
+                    <div class="industry-icon"><i class="fas fa-dumbbell"></i></div>
+                    <h3>Fitness</h3>
+                </div>
+                <div class="industry-card" data-industry="beauty">
+                    <div class="industry-icon"><i class="fas fa-spa"></i></div>
+                    <h3>Beauty</h3>
+                </div>
+            </div>
+
+            <!-- Solution Display (hidden initially) -->
+            <div id="solutionDisplay" class="solution-display" style="display: none;">
+                <div class="solution-header">
+                    <button class="back-button" onclick="resetIndustrySelector()">
+                        <i class="fas fa-arrow-left"></i> Back to Industries
+                    </button>
+                    <h3 id="solutionTitle"></h3>
+                    <p id="solutionIntro"></p>
+                </div>
+
+                <div class="solution-grid">
+                    <div class="solution-category">
+                        <div class="category-icon"><i class="fas fa-robot"></i></div>
+                        <h4>AI Automation</h4>
+                        <ul id="automationList"></ul>
+                    </div>
+
+                    <div class="solution-category">
+                        <div class="category-icon"><i class="fas fa-chart-bar"></i></div>
+                        <h4>Data & Analytics</h4>
+                        <ul id="analyticsList"></ul>
+                    </div>
+
+                    <div class="solution-category">
+                        <div class="category-icon"><i class="fas fa-bolt"></i></div>
+                        <h4>Process Optimisation</h4>
+                        <ul id="optimizationList"></ul>
+                    </div>
+
+                    <div class="solution-category">
+                        <div class="category-icon"><i class="fas fa-users"></i></div>
+                        <h4>Customer Experience</h4>
+                        <ul id="customerList"></ul>
                     </div>
                 </div>
 
-                <div id="solutionDisplay" class="solution-display" style="display: none;">
-                    <div class="solution-header">
-                        <h3 id="solutionTitle"></h3>
-                        <p id="solutionIntro"></p>
-                    </div>
-
-                    <div class="solution-grid">
-                        <div class="solution-category">
-                            <div class="category-icon"><i class="fas fa-robot"></i></div>
-                            <h4>AI Automation</h4>
-                            <ul id="automationList"></ul>
-                        </div>
-
-                        <div class="solution-category">
-                            <div class="category-icon"><i class="fas fa-chart-bar"></i></div>
-                            <h4>Data & Analytics</h4>
-                            <ul id="analyticsList"></ul>
-                        </div>
-
-                        <div class="solution-category">
-                            <div class="category-icon"><i class="fas fa-bolt"></i></div>
-                            <h4>Process Optimisation</h4>
-                            <ul id="optimizationList"></ul>
-                        </div>
-
-                        <div class="solution-category">
-                            <div class="category-icon"><i class="fas fa-users"></i></div>
-                            <h4>Customer Experience</h4>
-                            <ul id="customerList"></ul>
-                        </div>
-                    </div>
-
-                    <div class="solution-cta">
-                        <p>Ready to transform your <span id="businessTypeName"></span> business with AI?</p>
-                        <button class="cta-button primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-                            <span>Get a Free Consultation</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                    </div>
+                <div class="solution-cta">
+                    <p>Ready to transform your <span id="businessTypeName"></span> business with AI?</p>
+                    <button class="cta-button primary" onclick="document.getElementById('ai-booking').scrollIntoView({behavior: 'smooth'})">
+                        <span>Try Our AI Booking Assistant</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
                 </div>
             </div>
         </div>
@@ -787,6 +825,115 @@
                             <span>Request Security Documentation</span>
                             <i class="fas fa-file-download"></i>
                         </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-value" data-target="150">0</div>
+                    <div class="stat-label">Adelaide Businesses Served</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                    <div class="stat-value"><span data-target="40">0</span>hrs</div>
+                    <div class="stat-label">Average Time Saved Weekly</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-value"><span data-target="85">0</span>%</div>
+                    <div class="stat-label">Process Efficiency Improvement</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon"><i class="fas fa-server"></i></div>
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Data Hosted in South Australia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Booking Assistant Demo -->
+    <section id="ai-booking" class="ai-booking-demo">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">See AI in Action</div>
+                <h2 class="section-title">Try Our AI Booking Assistant</h2>
+                <p class="section-description">
+                    Experience our AI technology first-hand. Book a consultation through our intelligent assistant.
+                </p>
+            </div>
+
+            <div class="booking-demo-container" data-aos="fade-up">
+                <div class="demo-chat-widget">
+                    <div class="demo-chat-header">
+                        <div class="demo-chat-header-content">
+                            <div class="demo-chat-avatar"><i class="fas fa-robot"></i></div>
+                            <div class="demo-chat-header-text">
+                                <h3>Adelaide AI Booking Assistant</h3>
+                                <p><span class="status-indicator"></span> Online - Locally powered AI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-chat-messages" id="demoMessages">
+                        <div class="demo-chat-message bot">
+                            <div class="demo-chat-message-avatar"><i class="fas fa-robot"></i></div>
+                            <div class="demo-chat-message-content">
+                                G'day! I'm your AI booking assistant. I can help you schedule a free consultation with our Adelaide team. What's your name?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-chat-input-container">
+                        <form class="demo-chat-input-form" id="demoForm">
+                            <input type="text" class="demo-chat-input" id="demoInput" placeholder="Type your message..." autocomplete="off" required>
+                            <button type="submit" class="demo-chat-send">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="demo-info">
+                    <div class="demo-info-card">
+                        <h3><i class="fas fa-lightbulb"></i> How It Works</h3>
+                        <div class="info-steps">
+                            <div class="info-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Natural Conversation</h4>
+                                    <p>Chat naturally with our AI assistant</p>
+                                </div>
+                            </div>
+                            <div class="info-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Intelligent Understanding</h4>
+                                    <p>AI understands your needs and preferences</p>
+                                </div>
+                            </div>
+                            <div class="info-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Instant Booking</h4>
+                                    <p>Book your consultation in real-time</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-features">
+                        <h4>This AI Assistant Can:</h4>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Understand Australian business context</li>
+                            <li><i class="fas fa-check-circle"></i> Schedule meetings across ACST timezone</li>
+                            <li><i class="fas fa-check-circle"></i> Qualify your needs automatically</li>
+                            <li><i class="fas fa-check-circle"></i> Provide instant responses 24/7</li>
+                            <li><i class="fas fa-check-circle"></i> Keep your data in South Australia</li>
+                        </ul>
                     </div>
                 </div>
             </div>
