@@ -73,20 +73,6 @@
                             <span>Explore Solutions</span>
                         </button>
                     </div>
-                    <div class="stats-row">
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="50">0</div>
-                            <div class="stat-label">Projects Delivered</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="95">0</div>
-                            <div class="stat-label">Client Satisfaction</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="40">0</div>
-                            <div class="stat-label">Hours Saved Weekly</div>
-                        </div>
-                    </div>
                 </div>
                 <div class="hero-visual" data-aos="fade-left">
                     <div class="floating-card card-1">
@@ -311,40 +297,83 @@
     <section id="solutions" class="solutions">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <div class="section-badge">Industry Solutions</div>
-                <h2 class="section-title">Tailored for Adelaide Businesses</h2>
+                <div class="section-badge">How We Can Help</div>
+                <h2 class="section-title">AI Solutions for Your Business Type</h2>
                 <p class="section-description">
-                    Proven AI solutions across diverse industries
+                    Select your industry to discover tailored AI automation solutions
                 </p>
             </div>
 
-            <div class="solutions-container">
-                <div class="solution-item" data-aos="fade-right" data-aos-delay="100">
-                    <div class="solution-number">01</div>
-                    <div class="solution-content">
-                        <h3>Retail & E-commerce</h3>
-                        <p>Inventory prediction, customer behavior analysis, personalized recommendations, and automated customer service.</p>
+            <div class="business-selector-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="selector-wrapper">
+                    <label for="businessType" class="selector-label">What type of business do you run?</label>
+                    <div class="custom-select">
+                        <select id="businessType" class="business-type-select">
+                            <option value="">Choose your industry...</option>
+                            <option value="retail">Retail & E-commerce</option>
+                            <option value="professional">Professional Services (Legal, Accounting, Consulting)</option>
+                            <option value="healthcare">Healthcare & Wellness</option>
+                            <option value="manufacturing">Manufacturing & Logistics</option>
+                            <option value="hospitality">Hospitality & Tourism</option>
+                            <option value="realestate">Real Estate & Property Management</option>
+                            <option value="construction">Construction & Trades</option>
+                            <option value="education">Education & Training</option>
+                            <option value="finance">Finance & Insurance</option>
+                            <option value="marketing">Marketing & Creative Services</option>
+                            <option value="technology">Technology & Software</option>
+                            <option value="food">Food & Beverage</option>
+                            <option value="automotive">Automotive Services</option>
+                            <option value="fitness">Fitness & Sports</option>
+                            <option value="beauty">Beauty & Personal Care</option>
+                        </select>
+                        <div class="select-arrow">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
-                <div class="solution-item" data-aos="fade-right" data-aos-delay="200">
-                    <div class="solution-number">02</div>
-                    <div class="solution-content">
-                        <h3>Professional Services</h3>
-                        <p>Document processing, appointment scheduling, client communication automation, and billing optimization.</p>
+
+                <div id="solutionDisplay" class="solution-display" style="display: none;">
+                    <div class="solution-header">
+                        <h3 id="solutionTitle"></h3>
+                        <p id="solutionIntro"></p>
                     </div>
-                </div>
-                <div class="solution-item" data-aos="fade-right" data-aos-delay="300">
-                    <div class="solution-number">03</div>
-                    <div class="solution-content">
-                        <h3>Healthcare & Wellness</h3>
-                        <p>Patient scheduling, record management, appointment reminders, and compliance automation.</p>
+
+                    <div class="solution-grid">
+                        <div class="solution-category">
+                            <div class="category-icon">🤖</div>
+                            <h4>AI Automation</h4>
+                            <ul id="automationList"></ul>
+                        </div>
+
+                        <div class="solution-category">
+                            <div class="category-icon">📊</div>
+                            <h4>Data & Analytics</h4>
+                            <ul id="analyticsList"></ul>
+                        </div>
+
+                        <div class="solution-category">
+                            <div class="category-icon">⚡</div>
+                            <h4>Process Optimization</h4>
+                            <ul id="optimizationList"></ul>
+                        </div>
+
+                        <div class="solution-category">
+                            <div class="category-icon">💬</div>
+                            <h4>Customer Experience</h4>
+                            <ul id="customerList"></ul>
+                        </div>
                     </div>
-                </div>
-                <div class="solution-item" data-aos="fade-right" data-aos-delay="400">
-                    <div class="solution-number">04</div>
-                    <div class="solution-content">
-                        <h3>Manufacturing & Logistics</h3>
-                        <p>Supply chain optimization, quality control automation, predictive maintenance, and route planning.</p>
+
+                    <div class="solution-cta">
+                        <p>Ready to transform your <span id="businessTypeName"></span> business with AI?</p>
+                        <button class="cta-button primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                            <span>Get a Free Consultation</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -406,146 +435,6 @@
                         <div class="tech-item hover-lift">OpenAI</div>
                         <div class="tech-item hover-lift">LangChain</div>
                         <div class="tech-item hover-lift">PostgreSQL</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <div class="section-badge">Client Success Stories</div>
-                <h2 class="section-title">What Our Clients Say</h2>
-                <p class="section-description">
-                    See how we've helped Adelaide businesses transform with AI
-                </p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card glass-effect hover-lift" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">
-                        "Automate Adelaide transformed our customer service workflow. We've reduced response times by 70% and our team can now focus on complex issues. The ROI was evident within the first month."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">JM</div>
-                        <div class="author-info">
-                            <h4>James Mitchell</h4>
-                            <p>CEO, Adelaide Retail Solutions</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card glass-effect hover-lift" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">
-                        "The custom AI model they built for our inventory management has been a game-changer. We've cut costs by 40% and eliminated stock-outs completely. Highly recommend!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">SC</div>
-                        <div class="author-info">
-                            <h4>Sarah Chen</h4>
-                            <p>Operations Director, Metro Manufacturing</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card glass-effect hover-lift" data-aos="fade-up" data-aos-delay="300">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">
-                        "Working with Automate Adelaide was seamless from start to finish. Their team understood our needs perfectly and delivered a solution that exceeded expectations. The automation saves us 30+ hours weekly."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">DK</div>
-                        <div class="author-info">
-                            <h4>David Kumar</h4>
-                            <p>Founder, Adelaide HealthTech</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Showcase Section -->
-    <section class="portfolio">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <div class="section-badge">Our Work</div>
-                <h2 class="section-title">Recent Projects</h2>
-                <p class="section-description">
-                    Innovative AI solutions we've delivered for Adelaide businesses
-                </p>
-            </div>
-
-            <div class="portfolio-grid">
-                <div class="portfolio-item glass-effect" data-aos="fade-up" data-aos-delay="100">
-                    <div class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-icon">🤖</div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>AI Customer Service Bot</h3>
-                        <p>Automated support system handling 1000+ queries daily for a major retailer</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">NLP</span>
-                            <span class="tag">Chatbot</span>
-                            <span class="tag">API</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item glass-effect" data-aos="fade-up" data-aos-delay="200">
-                    <div class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-icon">📊</div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Predictive Analytics Platform</h3>
-                        <p>Real-time forecasting system improving supply chain efficiency by 45%</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Analytics</span>
-                            <span class="tag">Dashboard</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item glass-effect" data-aos="fade-up" data-aos-delay="300">
-                    <div class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-icon">⚙️</div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Workflow Automation Suite</h3>
-                        <p>End-to-end automation reducing manual processing time by 60%</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Automation</span>
-                            <span class="tag">Integration</span>
-                            <span class="tag">Cloud</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item glass-effect" data-aos="fade-up" data-aos-delay="400">
-                    <div class="portfolio-image">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-icon">🎯</div>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Document Processing AI</h3>
-                        <p>Intelligent OCR and classification system for healthcare provider</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Computer Vision</span>
-                            <span class="tag">OCR</span>
-                            <span class="tag">Classification</span>
-                        </div>
                     </div>
                 </div>
             </div>
