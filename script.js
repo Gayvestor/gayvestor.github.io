@@ -1325,3 +1325,95 @@ if (businessTypeSelect) {
         }
     });
 }
+
+// ==================== //
+// Accordion Functionality //
+// ==================== //
+const accordionItems = document.querySelectorAll('.accordion-item');
+
+accordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+
+    header.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // Close all accordions
+        accordionItems.forEach(accordionItem => {
+            accordionItem.classList.remove('active');
+        });
+
+        // Open clicked accordion if it wasn't active
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+
+// Open first accordion by default
+if (accordionItems.length > 0) {
+    accordionItems[0].classList.add('active');
+}
+
+// ==================== //
+// Leader Section Tabs //
+// ==================== //
+const expandBtns = document.querySelectorAll('.expand-btn');
+const contentSections = document.querySelectorAll('.content-section');
+
+expandBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const section = btn.getAttribute('data-section');
+
+        // Remove active from all buttons
+        expandBtns.forEach(b => b.classList.remove('active'));
+
+        // Remove active from all content sections
+        contentSections.forEach(s => s.classList.remove('active'));
+
+        // Add active to clicked button
+        btn.classList.add('active');
+
+        // Add active to corresponding content section
+        const targetSection = document.getElementById(`${section}-section`);
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
+    });
+});
+
+// ==================== //
+// Contact Form Toggle //
+// ==================== //
+const openAIChatBtn = document.getElementById('openAIChat');
+const showEmailFormBtn = document.getElementById('showEmailForm');
+const emailFormContainer = document.getElementById('emailFormContainer');
+const closeEmailFormBtn = document.getElementById('closeEmailForm');
+
+if (openAIChatBtn) {
+    openAIChatBtn.addEventListener('click', () => {
+        // Open the existing chat widget
+        const chatWidget = document.getElementById('chatWidget');
+        const chatInput = document.getElementById('chatInput');
+        if (chatWidget) {
+            chatWidget.classList.add('active');
+            if (chatInput) {
+                chatInput.focus();
+            }
+        }
+    });
+}
+
+if (showEmailFormBtn) {
+    showEmailFormBtn.addEventListener('click', () => {
+        emailFormContainer.style.display = 'block';
+        setTimeout(() => {
+            emailFormContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+    });
+}
+
+if (closeEmailFormBtn) {
+    closeEmailFormBtn.addEventListener('click', () => {
+        emailFormContainer.style.display = 'none';
+    });
+}
