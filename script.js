@@ -539,7 +539,7 @@ function addMessage(message, isUser = false) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `chat-message${isUser ? ' user' : ''}`;
     messageDiv.innerHTML = `
-        <div class="chat-message-avatar">${isUser ? '👤' : '🤖'}</div>
+        <div class="chat-message-avatar"><i class="fas ${isUser ? 'fa-user' : 'fa-robot'}"></i></div>
         <div class="chat-message-content">${message}</div>
     `;
     chatMessages.appendChild(messageDiv);
@@ -551,7 +551,7 @@ function showTypingIndicator() {
     const typingDiv = document.createElement('div');
     typingDiv.className = 'chat-message typing-indicator';
     typingDiv.innerHTML = `
-        <div class="chat-message-avatar">🤖</div>
+        <div class="chat-message-avatar"><i class="fas fa-robot"></i></div>
         <div class="chat-typing">
             <div class="typing-dot"></div>
             <div class="typing-dot"></div>
@@ -568,33 +568,33 @@ function showTypingIndicator() {
 function getAIResponse(userMessage) {
     const message = userMessage.toLowerCase();
 
-    // Knowledge base responses
+    // Knowledge base responses (Adelaide-focused)
     const responses = {
         greeting: [
-            "Hello! I'm here to help you learn about our AI automation services. What would you like to know?",
-            "Hi there! How can I assist you with automation today?",
-            "Welcome! I'm your AI assistant. What questions do you have about our services?"
+            "G'day! I'm here to help you learn about our AI automation services for South Australian businesses. What would you like to know?",
+            "Hi there! How can I assist you with automation for your Adelaide business today?",
+            "Welcome! I'm your Adelaide AI assistant. What questions do you have about our locally-focused services?"
         ],
         automation: [
-            "We offer comprehensive workflow automation that can save your business up to 40 hours weekly. Our solutions integrate seamlessly with your existing systems. Would you like to schedule a consultation?",
-            "Our automation services include process automation, data integration, task scheduling, and intelligent routing. Which area interests you most?"
+            "We offer comprehensive workflow automation that can save your South Australian business up to 40 hours weekly. Our solutions integrate seamlessly with your existing systems. Would you like to schedule a consultation at our Adelaide office?",
+            "Our automation services include process automation, data integration, task scheduling, and intelligent routing. We specialise in solutions for Adelaide and regional SA businesses. Which area interests you most?"
         ],
         ai: [
-            "We specialize in custom AI models tailored to your business needs, including natural language processing, predictive analytics, and computer vision. What's your use case?",
-            "Our AI solutions are designed specifically for Adelaide SMBs. We can build custom models that understand your data and industry. Tell me more about your needs."
+            "We specialise in custom AI models tailored to South Australian business needs, including natural language processing, predictive analytics, and computer vision. What's your use case?",
+            "Our AI solutions are designed specifically for Adelaide SMEs and regional SA businesses. We can build custom models that understand your data, industry, and local market. Tell me more about your needs."
         ],
         pricing: [
-            "Our pricing is customized based on your specific needs and scale. We offer flexible packages for small, medium, and enterprise businesses. Would you like to schedule a free consultation to discuss pricing?",
-            "We provide affordable, scalable solutions with transparent pricing. Each project is unique, so I recommend speaking with our team for a detailed quote. Shall I help you set up a meeting?"
+            "Our pricing is customised based on your specific needs and scale. We offer flexible packages for small, medium, and enterprise businesses across South Australia. Would you like to schedule a free consultation to discuss pricing?",
+            "We provide affordable, scalable solutions with transparent Australian pricing. Each project is unique, so I recommend speaking with our Adelaide team for a detailed quote. Shall I help you set up a meeting?"
         ],
         contact: [
-            "You can reach us at hello@automateadelaide.com.au or schedule a free consultation through our contact form. We're based in Adelaide, SA and serve businesses throughout the region.",
-            "We'd love to hear from you! Email us at hello@automateadelaide.com.au or fill out the contact form below. Our team typically responds within 24 hours."
+            "You can reach us at hello@automateadelaide.com.au or schedule a free consultation through our contact form. We're based in Adelaide CBD and serve businesses throughout South Australia.",
+            "We'd love to hear from you! Email us at hello@automateadelaide.com.au or fill out the contact form below. Our Adelaide team typically responds within 24 hours during business hours (ACST)."
         ],
         default: [
-            "That's a great question! Our team specializes in AI automation for Adelaide businesses. Could you provide more details about what you're looking for?",
-            "I'd be happy to help with that. Can you tell me more about your specific needs or challenges?",
-            "Interesting question! To give you the best answer, could you share more about your business and what you're trying to achieve?"
+            "That's a great question! Our team specialises in AI automation for Adelaide and South Australian businesses. Could you provide more details about what you're looking for?",
+            "I'd be happy to help with that. Can you tell me more about your specific needs or challenges facing your SA business?",
+            "Interesting question! To give you the best answer, could you share more about your business and what you're trying to achieve in the South Australian market?"
         ]
     };
 
@@ -852,10 +852,10 @@ window.addEventListener('load', () => {
 const businessTypeData = {
     retail: {
         name: 'Retail & E-commerce',
-        intro: 'Transform your retail operations with intelligent automation that predicts trends, personalizes customer experiences, and optimizes inventory.',
+        intro: 'Transform your retail operations with intelligent automation that predicts trends, personalises customer experiences, and optimises inventory.',
         automation: [
             'Automated inventory management and stock level predictions',
-            'Smart pricing optimization based on demand and competition',
+            'Smart pricing optimisation based on demand and competition',
             'Automated order processing and fulfillment workflows',
             'Email marketing automation with personalized campaigns'
         ],
@@ -865,10 +865,10 @@ const businessTypeData = {
             'Product performance analytics and recommendations',
             'Real-time dashboard for sales, inventory, and customer metrics'
         ],
-        optimization: [
-            'Supply chain optimization and vendor management',
+        optimisation: [
+            'Supply chain optimisation and vendor management',
             'Dynamic pricing strategies based on market conditions',
-            'Warehouse layout optimization for faster fulfillment',
+            'Warehouse layout optimisation for faster fulfilment',
             'Returns processing automation and fraud detection'
         ],
         customer: [
@@ -893,11 +893,11 @@ const businessTypeData = {
             'Resource allocation and capacity planning insights',
             'Performance metrics and KPI dashboards'
         ],
-        optimization: [
+        optimisation: [
             'Workflow automation for case management',
             'Document management and intelligent search',
-            'Client onboarding process optimization',
-            'Meeting scheduling optimization to reduce conflicts'
+            'Client onboarding process optimisation',
+            'Meeting scheduling optimisation to reduce conflicts'
         ],
         customer: [
             'Client portal for document sharing and communication',
@@ -917,13 +917,13 @@ const businessTypeData = {
         ],
         analytics: [
             'Patient health trends and outcome analysis',
-            'Resource utilization and staff scheduling optimization',
+            'Resource utilisation and staff scheduling optimisation',
             'Treatment effectiveness tracking',
             'Financial performance and revenue cycle analytics'
         ],
-        optimization: [
+        optimisation: [
             'Electronic health records (EHR) management and search',
-            'Patient flow optimization to reduce wait times',
+            'Patient flow optimisation to reduce wait times',
             'Inventory management for medical supplies',
             'Compliance documentation and reporting automation'
         ],
@@ -949,10 +949,10 @@ const businessTypeData = {
             'Supply chain analytics and bottleneck identification',
             'Demand forecasting and production planning'
         ],
-        optimization: [
-            'Route optimization for delivery and logistics',
-            'Warehouse layout and storage optimization',
-            'Energy consumption optimization',
+        optimisation: [
+            'Route optimisation for delivery and logistics',
+            'Warehouse layout and storage optimisation',
+            'Energy consumption optimisation',
             'Workforce scheduling and shift planning'
         ],
         customer: [
@@ -964,7 +964,7 @@ const businessTypeData = {
     },
     hospitality: {
         name: 'Hospitality & Tourism',
-        intro: 'Deliver exceptional guest experiences with AI that personalizes service, optimizes bookings, and streamlines operations.',
+        intro: 'Deliver exceptional guest experiences with AI that personalises service, optimises bookings, and streamlines operations.',
         automation: [
             'Automated booking and reservation management',
             'Dynamic pricing based on demand and seasonality',
@@ -977,10 +977,10 @@ const businessTypeData = {
             'Staff performance and productivity tracking',
             'Market trends and competitive analysis'
         ],
-        optimization: [
-            'Room allocation optimization for maximum revenue',
+        optimisation: [
+            'Room allocation optimisation for maximum revenue',
             'Staff scheduling based on predicted demand',
-            'Energy management and cost optimization',
+            'Energy management and cost optimisation',
             'Inventory management for food, beverages, and supplies'
         ],
         customer: [
@@ -1005,10 +1005,10 @@ const businessTypeData = {
             'Tenant behavior and retention insights',
             'Portfolio performance dashboards'
         ],
-        optimization: [
-            'Property marketing and listing optimization',
-            'Showing schedule coordination and optimization',
-            'Maintenance prioritization and resource allocation',
+        optimisation: [
+            'Property marketing and listing optimisation',
+            'Showing schedule coordination and optimisation',
+            'Maintenance prioritisation and resource allocation',
             'Vacancy prediction and leasing strategy'
         ],
         customer: [
@@ -1020,7 +1020,7 @@ const businessTypeData = {
     },
     construction: {
         name: 'Construction & Trades',
-        intro: 'Build smarter with AI that manages projects, optimizes scheduling, and ensures safety compliance.',
+        intro: 'Build smarter with AI that manages projects, optimises scheduling, and ensures safety compliance.',
         automation: [
             'Project scheduling and task management automation',
             'Equipment tracking and maintenance scheduling',
@@ -1033,10 +1033,10 @@ const businessTypeData = {
             'Safety incident tracking and analysis',
             'Timeline prediction and delay risk assessment'
         ],
-        optimization: [
+        optimisation: [
             'Crew scheduling and workforce allocation',
-            'Material waste reduction and optimization',
-            'Route optimization for multiple job sites',
+            'Material waste reduction and optimisation',
+            'Route optimisation for multiple job sites',
             'Permit tracking and compliance management'
         ],
         customer: [
@@ -1061,8 +1061,8 @@ const businessTypeData = {
             'Course effectiveness and completion rate analysis',
             'Resource allocation and capacity planning'
         ],
-        optimization: [
-            'Curriculum optimization based on learning outcomes',
+        optimisation: [
+            'Curriculum optimisation based on learning outcomes',
             'Classroom and resource scheduling',
             'Student-teacher matching for optimal learning',
             'Digital content recommendation and delivery'
@@ -1089,11 +1089,11 @@ const businessTypeData = {
             'Portfolio performance and investment analysis',
             'Customer lifetime value and churn prediction'
         ],
-        optimization: [
-            'Claims processing workflow optimization',
+        optimisation: [
+            'Claims processing workflow optimisation',
             'Underwriting process automation and decisioning',
             'Cash flow forecasting and treasury management',
-            'Expense categorization and budget tracking'
+            'Expense categorisation and budget tracking'
         ],
         customer: [
             'AI-powered financial advisors and chatbots',
@@ -1104,30 +1104,30 @@ const businessTypeData = {
     },
     marketing: {
         name: 'Marketing & Creative Services',
-        intro: 'Amplify your creative impact with AI that optimizes campaigns, generates content ideas, and analyzes performance.',
+        intro: 'Amplify your creative impact with AI that optimises campaigns, generates content ideas, and analyses performance.',
         automation: [
             'Social media posting and scheduling automation',
             'Email campaign creation and delivery',
-            'Ad campaign management and bidding optimization',
+            'Ad campaign management and bidding optimisation',
             'Content distribution across multiple channels'
         ],
         analytics: [
             'Campaign performance tracking and ROI analysis',
             'Audience segmentation and behavior insights',
             'Competitor analysis and market positioning',
-            'Content engagement metrics and optimization recommendations'
+            'Content engagement metrics and optimisation recommendations'
         ],
-        optimization: [
+        optimisation: [
             'A/B testing automation for ads and content',
             'Budget allocation across channels for maximum ROI',
-            'SEO optimization and keyword strategy',
-            'Influencer identification and outreach prioritization'
+            'SEO optimisation and keyword strategy',
+            'Influencer identification and outreach prioritisation'
         ],
         customer: [
             'Personalized content delivery based on user behavior',
             'Chatbots for lead qualification and nurturing',
             'Dynamic landing pages tailored to visitor segments',
-            'Customer journey mapping and touchpoint optimization'
+            'Customer journey mapping and touchpoint optimisation'
         ]
     },
     technology: {
@@ -1145,11 +1145,11 @@ const businessTypeData = {
             'Code quality metrics and technical debt analysis',
             'DevOps metrics and deployment success rates'
         ],
-        optimization: [
-            'Resource scaling and cloud cost optimization',
-            'Database query optimization',
-            'API performance monitoring and optimization',
-            'Development workflow and sprint planning optimization'
+        optimisation: [
+            'Resource scaling and cloud cost optimisation',
+            'Database query optimisation',
+            'API performance monitoring and optimisation',
+            'Development workflow and sprint planning optimisation'
         ],
         customer: [
             'AI-powered customer support and troubleshooting',
@@ -1160,7 +1160,7 @@ const businessTypeData = {
     },
     food: {
         name: 'Food & Beverage',
-        intro: 'Serve better experiences with AI that manages inventory, optimizes menus, and personalizes customer interactions.',
+        intro: 'Serve better experiences with AI that manages inventory, optimises menus, and personalises customer interactions.',
         automation: [
             'Automated inventory tracking and supplier ordering',
             'Online ordering and delivery coordination',
@@ -1173,16 +1173,16 @@ const businessTypeData = {
             'Customer preferences and dietary trend analysis',
             'Food waste tracking and reduction insights'
         ],
-        optimization: [
-            'Kitchen workflow and prep time optimization',
-            'Delivery route optimization for food service',
-            'Table turnover and seating optimization',
+        optimisation: [
+            'Kitchen workflow and prep time optimisation',
+            'Delivery route optimisation for food service',
+            'Table turnover and seating optimisation',
             'Energy consumption monitoring for kitchen equipment'
         ],
         customer: [
             'Personalized menu recommendations',
             'Loyalty program and rewards automation',
-            'Reservation management and waitlist optimization',
+            'Reservation management and waitlist optimisation',
             'Feedback collection and review response automation'
         ]
     },
@@ -1198,13 +1198,13 @@ const businessTypeData = {
         analytics: [
             'Service history tracking and predictive maintenance',
             'Technician productivity and efficiency metrics',
-            'Parts usage trends and inventory optimization',
+            'Parts usage trends and inventory optimisation',
             'Customer retention and service interval analysis'
         ],
-        optimization: [
-            'Bay scheduling and workflow optimization',
+        optimisation: [
+            'Bay scheduling and workflow optimisation',
             'Warranty claim processing automation',
-            'Diagnostic process optimization',
+            'Diagnostic process optimisation',
             'Fleet management and vehicle tracking'
         ],
         customer: [
@@ -1216,7 +1216,7 @@ const businessTypeData = {
     },
     fitness: {
         name: 'Fitness & Sports',
-        intro: 'Energize your business with AI that personalizes training, tracks progress, and optimizes member engagement.',
+        intro: 'Energise your business with AI that personalises training, tracks progress, and optimises member engagement.',
         automation: [
             'Class scheduling and booking automation',
             'Membership management and renewal reminders',
@@ -1229,10 +1229,10 @@ const businessTypeData = {
             'Class attendance patterns and popularity',
             'Revenue analysis by service type and time period'
         ],
-        optimization: [
-            'Personalized workout plan generation',
+        optimisation: [
+            'Personalised workout plan generation',
             'Equipment maintenance scheduling',
-            'Space utilization and class timing optimization',
+            'Space utilisation and class timing optimisation',
             'Nutrition plan creation and tracking'
         ],
         customer: [
@@ -1257,9 +1257,9 @@ const businessTypeData = {
             'Staff performance and utilization metrics',
             'Retail product sales and recommendation opportunities'
         ],
-        optimization: [
-            'Appointment scheduling to minimize gaps',
-            'Treatment duration optimization',
+        optimisation: [
+            'Appointment scheduling to minimise gaps',
+            'Treatment duration optimisation',
             'Product recommendation based on client profile',
             'Marketing campaign timing and targeting'
         ],
@@ -1296,9 +1296,9 @@ if (businessTypeSelect) {
             const analyticsList = document.getElementById('analyticsList');
             analyticsList.innerHTML = data.analytics.map(item => `<li>${item}</li>`).join('');
 
-            // Populate optimization list
-            const optimizationList = document.getElementById('optimizationList');
-            optimizationList.innerHTML = data.optimization.map(item => `<li>${item}</li>`).join('');
+            // Populate optimisation list
+            const optimisationList = document.getElementById('optimizationList');
+            optimisationList.innerHTML = data.optimisation.map(item => `<li>${item}</li>`).join('');
 
             // Populate customer list
             const customerList = document.getElementById('customerList');
